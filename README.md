@@ -1,3 +1,12 @@
+## 1. Membuat dan Mengaktifkan Conda Environment
+
+Buat environment baru dengan Python 3.10:
+
+```bash
+conda create -n tf-gpu python=3.10
+conda activate tf-gpu
+```
+
 **Penjelasan:**
 
 * `conda create -n tf-gpu python=3.10`

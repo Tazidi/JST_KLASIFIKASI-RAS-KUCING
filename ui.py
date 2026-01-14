@@ -5,7 +5,7 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 
 # Memuat model yang sudah dilatih
-model = load_model(r'C:\KULIAH\SEMESTER 5\JST\Tugas Besar\kucing_resnet_model_revisi1.h5')
+model = load_model(r'D:\!Kuliah\JST\JST\Model\kucing_resnet_model_revisi2.h5', compile=False)
 
 # Mendefinisikan class_labels secara manual
 class_labels = {

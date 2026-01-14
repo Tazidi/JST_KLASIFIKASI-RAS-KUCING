@@ -177,7 +177,7 @@ def main():
         st.subheader("Gambar yang di-upload")
 
         img, img_array = preprocess_image(uploaded_file)
-        st.image(img, caption="Gambar input", use_container_width=True)
+        st.image(img, caption="Gambar input", use_column_width=True)
 
         # GT input
         filename = getattr(uploaded_file, "name", "uploaded_image")
@@ -255,7 +255,7 @@ def main():
             for h in reversed(st.session_state.history[-10:]):
                 cols = st.columns([1, 4])
                 with cols[0]:
-                    st.image(Image.open(io.BytesIO(h["img_bytes"])), use_container_width=True)
+                    st.image(Image.open(io.BytesIO(h["img_bytes"])), use_column_width=True)
                 with cols[1]:
                     status = ""
                     if h["correct"] is True:

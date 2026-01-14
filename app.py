@@ -1,3 +1,5 @@
+from pathlib import Path
+import gdown
 import streamlit as st
 import numpy as np
 import tensorflow as tf
@@ -32,8 +34,21 @@ class_names = [
 # =========================
 @st.cache_resource
 def load_model():
-    model_path = r"D:\!Kuliah\JST\JST\Model\kucing_resnet_model_revisi2_Old.h5"
-    model = tf.keras.models.load_model(model_path, compile=False)
+    BASE_DIR = Path(__file__).resolve().parent
+    model_dir = BASE_DIR / "models"
+    model_dir.mkdir(exist_ok=True)
+
+    model_path = model_dir / "kucing_resnet_model_revisi2_Old.h5"
+
+    # Google Drive file ID
+    file_id = "1sjYdDXQgeqr6qB5hkvpsdGsSiLq2fYk_"
+    url = f"https://drive.google.com/uc?id={file_id}"
+
+    # Download hanya kalau belum ada
+    if not model_path.exists():
+        gdown.download(url, str(model_path), quiet=False)
+
+    model = tf.keras.models.load_model(str(model_path), compile=False)
     return model
 
 # =========================

@@ -166,7 +166,31 @@ def main():
     if st.sidebar.button("🧹 Clear history"):
         st.session_state.history = []
         st.sidebar.success("History dibersihkan.")
+    
+    DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1G2Sh-hHkIRuxkjiCfEWMyS1fOx53aX54?usp=sharing"
 
+    st.info(
+        "Kalau belum punya gambar, klik tombol di bawah untuk buka dataset di Google Drive, "
+        "download gambar kucingnya, lalu upload kembali di sini."
+    )
+
+    st.markdown(
+        f"""
+        <a href="{DRIVE_FOLDER_URL}" target="_blank">
+            <button style="
+                padding: 0.6rem 1rem;
+                border-radius: 0.6rem;
+                border: 1px solid #ccc;
+                cursor: pointer;">
+                📂 Buka Dataset Kucing (Google Drive)
+            </button>
+        </a>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown("---")
+    
     # Upload gambar
     uploaded_file = st.file_uploader(
         "Upload gambar kucing (jpg, jpeg, png):",
